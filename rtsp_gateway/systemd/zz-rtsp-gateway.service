@@ -1,0 +1,43 @@
+[Unit]
+Description=ZZNetSDK - pasarela de registro activo a RTSP
+Documentation=file:///opt/zz-rtsp-gateway/install.md
+After=network-online.target mediamtx.service
+Wants=network-online.target mediamtx.service
+
+[Service]
+Type=simple
+User=zzgw
+Group=zzgw
+Environment=LD_LIBRARY_PATH=/opt/zznetsdk/lib_linux64
+ExecStartPre=/usr/local/bin/zz-rtsp-gateway --env /etc/zz-rtsp-gateway/gateway.env --check-config
+ExecStart=/usr/local/bin/zz-rtsp-gateway --env /etc/zz-rtsp-gateway/gateway.env
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+# Configuración inválida (código 78): no reintentar en bucle
+RestartPreventExitStatus=78
+TimeoutStopSec=20
+KillMode=mixed
+LimitNOFILE=65536
+TasksMax=4096
+
+# Directorio de trabajo (el SDK puede escribir archivos auxiliares)
+StateDirectory=zz-rtsp-gateway
+WorkingDirectory=/var/lib/zz-rtsp-gateway
+
+# Endurecimiento
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+RestrictNamespaces=yes
+LockPersonality=yes
+# Descomentar sólo si ZZGW_LISTEN_PORT < 1024
+#AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

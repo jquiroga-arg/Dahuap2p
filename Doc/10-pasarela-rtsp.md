@@ -170,6 +170,8 @@ sudo systemctl enable --now mediamtx rtsp-gateway
 
 ## 10.6 Programa: `rtsp_gateway.cpp`
 
+> **Versión de producción:** el servicio completo, configurable por `.env` (puerto, redes permitidas, credenciales por archivo, flujo, canales, rutas, ffmpeg), con units de systemd e instrucciones de instalación está en la carpeta [`rtsp_gateway/`](../rtsp_gateway/install.md) del repositorio. El programa de esta sección es la versión mínima, para entender el mecanismo.
+
 Puntos de diseño:
 
 - Los callbacks del SDK **sólo encolan**; el login y la apertura de video se hacen en el hilo principal.

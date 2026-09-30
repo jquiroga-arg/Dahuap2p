@@ -1,0 +1,23 @@
+# =====================================================================
+# zz-rtsp-gateway — equipos autorizados
+# Copiar a /etc/zz-rtsp-gateway/cameras.conf  (chmod 640, root:zzgw)
+# Recargar sin reiniciar: sudo systemctl reload zz-rtsp-gateway
+#
+# Formato (separado por espacios):
+#   ID  usuario  clave  [canales]  [flujo]
+#
+#   ID       = "ID de sub-dispositivo" configurado en la cámara (Red > Registro)
+#              caracteres permitidos: letras, números, - _ .  (máx. 64)
+#   canales  = 0 | 0,1,3 | all | -   ("-" = ZZGW_DEFAULT_CHANNELS)
+#   flujo    = main | sub | sub2     (omitido = ZZGW_STREAM)
+#   La clave no puede contener espacios.
+# =====================================================================
+
+# Cámara IP de una sola lente, sub-flujo -> rtsp://servidor:8554/CAM-SUC01-01
+CAM-SUC01-01   plataforma   ClaveCam01!
+
+# Cámara con flujo principal
+CAM-SUC01-02   plataforma   ClaveCam02!   0      main
+
+# NVR: publicar los canales 1 a 4 -> rtsp://servidor:8554/NVR-SUC02/ch1 ... /ch4
+NVR-SUC02      plataforma   ClaveNvr02!   0,1,2,3 sub
