@@ -305,7 +305,7 @@ sequenceDiagram
 
 ## 5.10 Registro activo (el equipo se conecta al servidor)
 
-Útil cuando los equipos están detrás de NAT/CGNAT sin IP pública: el equipo se configura con la IP/puerto del servidor y abre la conexión hacia afuera.
+Útil cuando los equipos están detrás de NAT/CGNAT sin IP pública: el equipo se configura con la IP/puerto del servidor y abre la conexión hacia afuera. Guía completa de configuración (cámara, firewall, programa de ejemplo): [09-registro-activo.md](09-registro-activo.md).
 
 ```mermaid
 sequenceDiagram

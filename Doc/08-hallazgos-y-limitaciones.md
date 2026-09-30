@@ -98,7 +98,7 @@ El proyecto se denomina "P2P Dahua", por lo que este punto es relevante:
 - **No hay** en el paquete ninguna biblioteca de túnel P2P (en el ecosistema Dahua suele ser un SDK separado que mapea el equipo a un puerto local).
 - En `libgeneral_netsdk.so` sólo aparecen referencias a parámetros P2P de red móvil (`EM_OPT_TYPE_P2P_NETPARAM_V1`, `GetNetAccessMobileP2P`).
 
-**Recomendación:** para acceso remoto sin IP pública, usar **registro activo** (`ListenServer` + `nSpecCap=2`, [05 §5.10](05-flujos-secuencia.md)), que está completamente incluido en el SDK, o incorporar un componente de túnel P2P y luego hacer `LoginEx(127.0.0.1, puertoLocal, ..., 19, ...)` ([05 §5.11](05-flujos-secuencia.md)).
+**Recomendación:** para acceso remoto sin IP pública, usar **registro activo** (`ListenServer` + `nSpecCap=2`, [05 §5.10](05-flujos-secuencia.md) y guía [09](09-registro-activo.md)), que está completamente incluido en el SDK, o incorporar un componente de túnel P2P y luego hacer `LoginEx(127.0.0.1, puertoLocal, ..., 19, ...)` ([05 §5.11](05-flujos-secuencia.md)).
 
 ## 8.9 H12 — Inconsistencias en cabeceras y documentación
 
