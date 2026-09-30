@@ -32,6 +32,7 @@ Cuando algo es una **inferencia** (no verificable sin un equipo físico) se indi
 | 7 | [Ejemplos de código](07-ejemplos.md) | Programas probados, `Makefile`, `CMakeLists.txt` |
 | 8 | [Hallazgos, limitaciones y riesgos](08-hallazgos-y-limitaciones.md) | Resultados de la ingeniería inversa, problemas de empaquetado, seguridad |
 | 9 | [Guía: cámaras remotas por registro activo](09-registro-activo.md) | P2P vs registro activo, configuración de la cámara y del servidor, programa de ejemplo |
+| 10 | [Pasarela RTSP](10-pasarela-rtsp.md) | Cómo obtener RTSP de cámaras auto-registradas: SDK → FFmpeg (dhav) → MediaMTX |
 
 ---
 
@@ -65,4 +66,4 @@ Para esto el wrapper incluye estáticamente **libcurl** y **nlohmann/json 3.11.3
 5. La exportación/importación de configuración envía la contraseña con **HTTP Basic sin cifrar**.
 6. No incluye cabecera para `libplay.so` (decodificación/render), ni ejemplos, ni la biblioteca de túnel P2P.
 
-**Cámaras remotas detrás de NAT:** el mecanismo soportado por este SDK es el **registro activo** (la cámara se conecta al servidor), no el P2P en la nube de Dahua. Ver la guía [09-registro-activo.md](09-registro-activo.md).
+**Cámaras remotas detrás de NAT:** el mecanismo soportado por este SDK es el **registro activo** (la cámara se conecta al servidor), no el P2P en la nube de Dahua. Ver la guía [09-registro-activo.md](09-registro-activo.md). El SDK no crea túneles RTSP; para obtener RTSP ver la pasarela en [10-pasarela-rtsp.md](10-pasarela-rtsp.md).

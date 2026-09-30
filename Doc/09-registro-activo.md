@@ -283,6 +283,8 @@ Esperando cámaras en TCP 9500 ...
 
 Para ejecutarlo como servicio, usar el unit de systemd de [02 §2.8](02-instalacion-ubuntu.md#28-ejecutar-como-servicio-systemd).
 
+> **¿Y RTSP?** El registro activo no expone el RTSP nativo de la cámara. Para publicar las cámaras registradas como `rtsp://servidor:8554/<ID>` ver [10-pasarela-rtsp.md](10-pasarela-rtsp.md).
+
 ## 9.8 Ancho de banda y rendimiento
 
 | Recomendación | Motivo |
